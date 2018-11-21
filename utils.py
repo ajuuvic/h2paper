@@ -3,7 +3,7 @@ import openpyxl
 import warnings
 import re
 
-def data_frame_from_xlsx(xlsx_file, range_name,header_row=False, index_col=False):
+def data_frame_from_xlsx(xlsx_file, range_name,header_row=False, shorten_names=True, index_col=False):
     """ Get a single rectangular region from the specified file.
     range_name can be a standard Excel reference ('Sheet1!A2:B7') or 
     refer to a named region ('my_cells')."""
@@ -39,9 +39,11 @@ def data_frame_from_xlsx(xlsx_file, range_name,header_row=False, index_col=False
     
     if header_row:
         header = df.iloc[0]
+        df.columns = header
         # Strip off everything after the first punctuation
-        alter = lambda x : re.sub(r'[)( /\*].*$', '', x) if x else None
-        df.columns = header.apply(alter)
+        if shorten_names:
+            df.columns = header.apply(lambda x : re.sub(r'[)( /\*].*$', '', x) if x else None)
+
         df=df.drop(0)
         df.index = range(len(df))
 
