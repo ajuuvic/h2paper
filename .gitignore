@@ -56,3 +56,13 @@ docs/_build/
 
 # PyBuilder
 target/
+
+*.png
+
+\.idea/
+
+\.ipynb_checkpoints/
+
+venv/
+
+Untitled\.ipynb
