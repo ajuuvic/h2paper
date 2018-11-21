@@ -1,4 +1,9 @@
-# Supplementary Information for
-# H2 GWP Paper
+# Supplementary Information
 
-Please note that the notebooks do not display properly in some versions of firefox.  If you have this issue, please try... any other browser.
+  * [Supplementary Text](Supplementary.ipynb)
+  * [Plots and Tables](Plots.ipynb)
+
+
+### Issues:
+  * Jupyter notebooks do not display in some versions of firefox.  Try disabling your extensions!
+  * Github does not respect anchor links, to the tables of contents do not work.  Feel free to run locally!
